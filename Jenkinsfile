@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Скачиваем код из вашего GitHub
-                git branch: 'develop', url: 'https://github.com/VAMolodov/ваша-репа.git'
+                git branch: 'develop2', url: 'https://github.com/VAMolodov/Diplom_2.git'
             }
         }
 

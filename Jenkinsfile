@@ -15,8 +15,8 @@ pipeline {
                 // Создаем виртуальное окружение и ставим библиотеки
                 sh '''
                     python3 -m venv venv
-                    source venv/bin/activate
-                    pip install -r requirements.txt
+                    ./venv/bin/pip install --upgrade pip
+                    ./venv/bin/pip install -r requirements.txt
                 '''
             }
         }
@@ -24,10 +24,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Запускаем тесты. Не забудьте про --headless в коде фикстуры!
-                sh '''
-                    source venv/bin/activate
-                    pytest --alluredir=allure-results
-                '''
+                sh './venv/bin/pytest --alluredir=allure-results'
             }
         }
     }
